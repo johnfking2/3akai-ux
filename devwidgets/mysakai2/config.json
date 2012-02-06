@@ -13,7 +13,7 @@
     },
     "img":"/devwidgets/mysakai2/images/s2icon.png",
     "id":"mysakai2",
-    "personalportal":false,
+    "personalportal":true,
     "type":"sakai",
     "enabled":false,
     "hasSettings":false,

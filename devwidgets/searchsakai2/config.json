@@ -2,7 +2,7 @@
     "id":                 "searchsakai2",
     "type":               "core",
     "enabled":            false,
-    "hasSettings":        false,
+    "hasSettings":        true,
     "url":                "/devwidgets/searchsakai2/searchsakai2.html",
     "i18n": {
         "default": {
@@ -12,5 +12,6 @@
         }
     },
     "personalportal":     false,
-    "sakaidocs":          false
+    "sakaidocs":          true,
+    "showinsakaigoodies": false
 }
