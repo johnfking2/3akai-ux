@@ -101,6 +101,7 @@ require(["jquery", "sakai/sakai.api.core"], function($, sakai) {
                                 }
                             }
                         }
+                        console.log(resultJson);
                         sakai.data.me.sakai2List = resultJson;
                         doRender(sakai.data.me.sakai2List);
                     }, 
