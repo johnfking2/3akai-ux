@@ -175,6 +175,9 @@ require(["jquery", "sakai/sakai.api.core", "/dev/javascript/search_util.js"], fu
                 for (var s = 0; s < finaljson.sites.length; s++){
                     var url = finaljson.sites[s].url;
                     finaljson.sites[s].url = url.split("/")[url.split("/").length - 1];
+                    if (finaljson.sites[s].siteType === undefined) {
+                    	finaljson.sites[s].siteType = "";
+                    }
                 }
     
                 resultstotal = finaljson.sites.length;
