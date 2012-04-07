@@ -145,6 +145,27 @@ require(["jquery", "sakai/sakai.api.core", "/dev/javascript/search_util.js"], fu
             }, 0);
         };
 
+        
+        /**
+         * 1) strip HTML tags as truncating the string may leave unclosed tags
+         * 2) take the first 250 chars of the long description and add '                                                                            ...'
+         */
+        var shortenDescription = function(fullDescription) {
+        	var shortenedDescription = "";
+        	if (fullDescription) {
+        		var lines = fullDescription.split(/<br\/?>/m);
+        		var maxLines = lines.length < 20 ? lines.length : 20;
+        		for (var i = 0; i < maxLines; i++) {
+        			shortenedDescription = shortenedDescription + lines[i] + "<br/>";
+        		}
+        	}
+//        	if (fullDescription) {
+//        	// first replace <br> with \n
+//        		shortenedDescription = fullDescription.replace(/<br\/?>/g,"\r\n");
+//        	}
+        	return shortenedDescription;
+        };
+        
         /* 
          * Renders the results using the json as structured in 
          * /var/proxy/s23/sitesCategorized.json?categorized=true
@@ -175,6 +196,10 @@ require(["jquery", "sakai/sakai.api.core", "/dev/javascript/search_util.js"], fu
                 for (var s = 0; s < finaljson.sites.length; s++){
                     var url = finaljson.sites[s].url;
                     finaljson.sites[s].url = url.split("/")[url.split("/").length - 1];
+                    // we can't use the "Short Description" from the bSpace site as that is often not populated
+                    var shortenedDescription = shortenDescription(finaljson.sites[s].description);
+                    finaljson.sites[s].description = shortenedDescription;
+                    // just add empty string for a site that is not a course or a project site to prevent trimpath blow-up
                     if (finaljson.sites[s].siteType === undefined) {
                     	finaljson.sites[s].siteType = "";
                     }
