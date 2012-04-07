@@ -13,5 +13,7 @@
     },
     "personalportal":     false,
     "sakaidocs":          true,
-    "showinsakaigoodies": false
+    "showinsakaigoodies": false,
+    "showInSakai2Window":    true,
+    "iconPath":           "/dev/images/bspace_grp_icon.png"
 }
