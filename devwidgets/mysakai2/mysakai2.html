@@ -30,7 +30,12 @@
             {for site in sites}
                 <li class="mysakai2_item">
                     <span class="mysakai2_site_title">
-                        <a class="s3d-regular-links s3d-bold" href="${site.url}" target="_blank">${site.title}</a>
+                        {var widgetConfig = sakai.widgets.mysakai2}
+                        {if widgetConfig.showInSakai2Window}
+                            <a class="s3d-regular-links s3d-bold" href="${site.url}" target="_blank">${site.title}</a>
+                        {else}
+                            <a class="s3d-regular-links s3d-bold" href="/s2site?id=${site.id}">${site.title}</a>
+                        {/if}
                         {if site.messages || site.forums}
                             <br/>
                         {/if}

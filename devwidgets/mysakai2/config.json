@@ -16,5 +16,6 @@
     "type":"sakai",
     "enabled":false,
     "hasSettings":false,
+    "showInSakai2Window": true,
     "url":"/devwidgets/mysakai2/mysakai2.html"
 }
