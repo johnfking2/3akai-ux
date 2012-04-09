@@ -73,7 +73,7 @@
                             <div>
                         {if widgetConfig.showInSakai2Window}
                             <a class="s3d-bold s3d-regular-light-links" href="portal/site/${site.url}" target="_blank" title="${site.title}">
-                                ${site.tite}
+                                ${site.title}
                             </a>
                         {else}
                             <a class="s3d-bold s3d-regular-light-links" href="s2site?id=${site.url}" title="${site.title}">
@@ -81,8 +81,9 @@
                             </a>
                          {/if}
                                 <span class="searchsakai2_result_mimetype">__MSG__SAKAI2__ ${site.siteType} __MSG__SITE__</span>
-                            </div>
-                            {if site.description}<div class="searchsakai2_itemby">${site.description}</div>
+                            </div
+                            {if site.shortDescription}<div class="searchsakai2_itemby">${site.shortDescription}</div>
+                            {else}<div class="searchsakai2_itemby">${site.description}</div>
                             {/if}
                         </div>
                     </div>
