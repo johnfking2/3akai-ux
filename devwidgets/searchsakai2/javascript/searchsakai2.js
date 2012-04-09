@@ -201,7 +201,7 @@ require(["jquery", "sakai/sakai.api.core", "/dev/javascript/search_util.js"], fu
                     finaljson.sites[s].description = shortenedDescription;
                     // just add empty string for a site that is not a course or a project site to prevent trimpath blow-up
                     if (finaljson.sites[s].siteType === undefined) {
-                    	finaljson.sites[s].siteType = "";
+                        finaljson.sites[s].siteType = "";
                     }
                 }
     
