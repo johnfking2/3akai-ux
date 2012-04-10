@@ -14,7 +14,7 @@
     "id":"mysakai2",
     "personalportal":true,
     "type":"sakai",
-    "enabled":false,
+    "enabled":true,
     "hasSettings":false,
     "showInSakai2Window": true,
     "url":"/devwidgets/mysakai2/mysakai2.html"
