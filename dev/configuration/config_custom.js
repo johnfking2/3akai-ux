@@ -43,9 +43,8 @@ define(["config/config", "config/env"], function(config) {
         "name": "mylinks"
     };
     
-    
     // Show walktime dashboard widget by default for new users
-    config.defaultprivstructure["${refid}0"]["${refid}5"].dashboard.columns.column1[2] = {
+    config.defaultprivstructure["${refid}0"]["${refid}5"].dashboard.columns.column1[1] = {
         "uid": "id46750934593210789",
         "visible": "block",
         "name": "walktime"
