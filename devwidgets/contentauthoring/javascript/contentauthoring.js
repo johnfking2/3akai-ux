@@ -1342,7 +1342,8 @@ require(['jquery', 'underscore', 'sakai/sakai.api.core', 'jquery-ui'], function(
                         'url': oldStorePath,
                         'method': 'POST',
                         'parameters': {
-                            ':operation': 'move',
+                            // SAKIII-5486
+                            ':operation': 'publish-sakaidoc-page',
                             ':dest': storePath,
                             ':replace': true
                         }
@@ -1719,7 +1720,6 @@ require(['jquery', 'underscore', 'sakai/sakai.api.core', 'jquery-ui'], function(
             if (isInEditMode()) {
                 ev.preventDefault();
                 $('.contentauthoring_row_reorder_highlight.external_content', $rootel).remove();
-                var dt = ev.originalEvent.dataTransfer;
                 addExternal(ev, $(this));
             }
             return false;
@@ -1762,6 +1762,7 @@ require(['jquery', 'underscore', 'sakai/sakai.api.core', 'jquery-ui'], function(
                 sakai.api.Widgets.widgetLoader.insertWidgets('contentauthoring_widget', false, storePath + '/');
                 checkColumnsEmpty();
                 setPageEditActions();
+                storeCurrentPageLayout();
                 sakai.api.Util.progressIndicator.hideProgressIndicator();
             });
         };
@@ -1828,6 +1829,7 @@ require(['jquery', 'underscore', 'sakai/sakai.api.core', 'jquery-ui'], function(
                             checkColumnsEmpty();
                             sakai.api.Widgets.widgetLoader.insertWidgets('contentauthoring_widget', false, storePath + '/');
                             setPageEditActions();
+                            storeCurrentPageLayout();
                             sakai.api.Util.progressIndicator.hideProgressIndicator();
                             if (uploadError) {
                                 sakai.api.Util.notification.show(
@@ -1940,6 +1942,7 @@ require(['jquery', 'underscore', 'sakai/sakai.api.core', 'jquery-ui'], function(
                             checkColumnsEmpty();
                             sakai.api.Widgets.widgetLoader.insertWidgets('contentauthoring_widget', false, storePath + '/');
                             setPageEditActions();
+                            storeCurrentPageLayout();
                             sakai.api.Util.progressIndicator.hideProgressIndicator();
                         }, true);
                     });
