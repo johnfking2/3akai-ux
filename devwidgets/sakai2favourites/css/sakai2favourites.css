@@ -30,3 +30,27 @@
 .sakai2favourites_site_list ul li{list-style:none;margin:0;padding:0 5px;}
 .sakai2favourites_close_image{float:right;margin-right:5px;background:url(/dev/images/dashboard_sprite.png) no-repeat scroll -40px -641px transparent;cursor:pointer;display:block;height:15px;overflow:hidden;width:14px;}
 .sakai2favourites_leftpane_button{font-size:13px}
+
+/* Begin CalCentral Customization */
+/* Fixes bug SAKIII-5501, long names push close box to the next line */
+.sakai2favourites_site_list ul li {
+    position: relative;
+}
+
+.sakai2favourites_site_list ul li span {
+    display: inline-block;
+    width: 90%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+sakai2favourites_close_image {
+    position: absolute;
+    top: 0;
+    right: 5px;
+}
+
+/* End CalCentral Customization */
+
+

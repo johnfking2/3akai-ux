@@ -27,3 +27,20 @@
 #mysakai2_forums{background:url(/devwidgets/mysakai2/images/forums.png) no-repeat left top transparent;padding-left:20px;color:#999;font-size:11px;}
 .s3d-widget-footer a { margin-left: 6px; }
 #mysakai2_no_results_container, #mysakai2_error_container {padding: 0 10px 10px;}
+
+/* Start CalCentral Customization */
+.mysakai2_widget .fl-widget-content {
+    max-height: 200px;
+    overflow: scroll;
+}
+
+.mysakai2 .s3d-contentpage-title {
+    margin-bottom: 2px;
+}
+
+.mysakai2_widget .fl-widget-content ul li {
+    padding: 10px 0px 0px 36px;
+    background:url(/devwidgets/mysakai2/images/bspace_icon.png) no-repeat scroll 10px 10px transparent;
+}
+
+/* End CalCentral Customization */
