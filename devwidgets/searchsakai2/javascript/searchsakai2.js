@@ -176,10 +176,12 @@ require(["jquery", "sakai/sakai.api.core", "/dev/javascript/search_util.js"], fu
                 for (var s = 0; s < finaljson.sites.length; s++){
                     var url = finaljson.sites[s].url;
                     finaljson.sites[s].url = url.split("/")[url.split("/").length - 1];
+                    // Begin CalCentral Customization to use the siteType in the bSpace/CLE json return in trimpath template
                     // just add empty string for a site that is not a course or a project site to prevent trimpath blow-up
                     if (finaljson.sites[s].siteType === undefined) {
                         finaljson.sites[s].siteType = "";
                     }
+                   // End CalCentral Customization
                 }
     
                 resultstotal = finaljson.sites.length;

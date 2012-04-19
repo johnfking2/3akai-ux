@@ -55,7 +55,9 @@ strong{color:#000;}
 .searchsakai2_result_first{border-top: 1px solid #e9e9e9;}
 .searchsakai2_result img{float:left;padding:0 10px 0px 0;width:40px;}
 .searchsakai2_result_sites img{width:30px;}
+/* Start CalCentral Customization to set height on div containing shortDescription */
 .searchsakai2_result_right{margin-left:55px; margin-top: 5px;height: 2em;}
+/* End CalCentral Customization */
 .searchsakai2_result_star{background-image:url(/dev/images//star.png);display:block;float:left;position:relative;top:-4px;left:0;}
 .searchsakai2_result_header{color:#39c;margin:0 0 5px 25px;font-weight:bold;font-size:1.1em;}
 .searchsakai2_result_description{margin:0 0 5px;color:#333;font-size:.90em;padding:6px 0;}
