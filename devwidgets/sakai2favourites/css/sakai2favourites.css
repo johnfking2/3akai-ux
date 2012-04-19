@@ -33,24 +33,21 @@
 
 /* Begin CalCentral Customization */
 /* Fixes bug SAKIII-5501, long names push close box to the next line */
+
 .sakai2favourites_site_list ul li {
     position: relative;
+    padding: 1px 5px;
 }
 
 .sakai2favourites_site_list ul li span {
+    padding-right: 20px;
     display: inline-block;
-    width: 90%;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
 }
 
-sakai2favourites_close_image {
+.sakai2favourites_close_image {
     position: absolute;
-    top: 0;
-    right: 5px;
+    top: 2px;
+    right: 0;
 }
 
 /* End CalCentral Customization */
-
-

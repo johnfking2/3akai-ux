@@ -29,9 +29,14 @@
 #mysakai2_no_results_container, #mysakai2_error_container {padding: 0 10px 10px;}
 
 /* Start CalCentral Customization */
+.mysakai2_items_list {
+    margin: 0;
+}
+
 .mysakai2_widget .fl-widget-content {
     max-height: 200px;
     overflow: scroll;
+    padding: 0;
 }
 
 .mysakai2 .s3d-contentpage-title {
@@ -42,5 +47,10 @@
     padding: 10px 0px 0px 36px;
     background:url(/devwidgets/mysakai2/images/bspace_icon.png) no-repeat scroll 10px 10px transparent;
 }
+
+.mysakai2_widget .fl-widget-content ul li a {
+    padding-bottom: 0;
+}
+
 
 /* End CalCentral Customization */
