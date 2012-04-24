@@ -204,7 +204,7 @@ require(["jquery", "sakai/sakai.api.core", "/dev/javascript/search_util.js"], fu
             $(searchConfig.results.container, rootel).html(sakai.api.Util.TemplateRenderer(searchConfig.results.template, finaljson));
             $(searchConfig.results.container, rootel).show();
             // Begin CalCentral Customization
-            addNavigationHandlers();
+            addNavigationHandler();
             // End CalCentral Cusomization
 
             // Putting Pager Reset down here, otherwise I seem to be having
@@ -252,13 +252,8 @@ require(["jquery", "sakai/sakai.api.core", "/dev/javascript/search_util.js"], fu
         });
         
         // Begin CalCentral Customization - event handlers for external navigation
-        var addNavigationHandlers = function() {
-	        $('#go-sakai2-1').on('click',function(event){   
-	            event.preventDefault();
-	            window.open(this.href,'s2_window');
-	        });
-        
-	        $('#go-sakai2-2').on('click',function(event){
+        var addNavigationHandler = function() {
+	        $('.go-sakai2').on('click',function(event){   
 	            event.preventDefault();
 	            window.open(this.href,'s2_window');
 	        });
