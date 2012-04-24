@@ -63,7 +63,7 @@
                   {for site in sites}
                     <div class="fl-container fl-fix searchsakai2_result {if site.index === "0"} searchsakai2_result_first {/if}">
                       {if widgetConfig.showInSakai2Window}
-                        <a href="portal/site/${site.url}" target="s2_window" >
+                        <a href="${site.url}" id="go-sakai2-1">
                             <img src="${widgetConfig.iconPath}" alt="__MSG__SAKAI2_SEARCH_ICON_ALT__" />
                         </a>
                       {else}
@@ -74,7 +74,7 @@
                         <div class="searchsakai2_result_right">
                             <div>
                         {if widgetConfig.showInSakai2Window}
-                            <a class="s3d-bold s3d-regular-light-links" href="portal/site/${site.url}" target="s2_window" title="${site.title}">
+                            <a class="s3d-bold s3d-regular-light-links" id="go-sakai2-2" href="${site.url}" title="${site.title}">
                                 ${site.title}
                             </a>
                         {else}
