@@ -723,9 +723,6 @@ define(["config/config", "config/env"], function(config) {
     
     // Hybrid
     
-    config.showSakai2=true;
-    config.useLiveSakai2Feeds=true;
-    
     // adds the Sakai 2 Sites item to the left hand nav
     config.defaultprivstructure['${refid}0']['${refid}5'].dashboard.columns.column1.push({
         'uid': '${refid}1234',
