@@ -61,6 +61,7 @@ require(["jquery", "sakai/sakai.api.core"], function($, sakai) {
             } else {
                 $(mysakai2List, rootel).show();
                 $(mysakai2ErrorNosites, rootel).hide();
+                resultJson.sakai = sakai;
                 $(mysakai2List, rootel).html(sakai.api.Util.TemplateRenderer(mysakai2ListTemplate.replace(/#/, ''), resultJson));
             }
         };

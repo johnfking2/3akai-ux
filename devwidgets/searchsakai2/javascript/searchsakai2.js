@@ -144,7 +144,8 @@ require(["jquery", "sakai/sakai.api.core", "/dev/javascript/search_util.js"], fu
                 "page": pageclickednumber
             }, 0);
         };
-
+  
+        
         /* 
          * Renders the results using the json as structured in 
          * /var/proxy/s23/sitesCategorized.json?categorized=true
@@ -173,8 +174,18 @@ require(["jquery", "sakai/sakai.api.core", "/dev/javascript/search_util.js"], fu
                 finaljson.query = qparams.q;
                 finaljson.sites.sort(siteTitleSort);
                 for (var s = 0; s < finaljson.sites.length; s++){
-                    var url = finaljson.sites[s].url;
-                    finaljson.sites[s].url = url.split("/")[url.split("/").length - 1];
+                    // Begin CalCentral Customization, we are linking directly to bSpace sites don't truncate the URL
+                    // since we need the full URL to the external server - simplifies Apache config also, no need for "load balancer" section
+                    if (!sakai.widgets.searchsakai2.showInSakai2Window) {
+                        var url = finaljson.sites[s].url;
+                    	finaljson.sites[s].url = url.split("/")[url.split("/").length - 1];
+                    }
+                    // continued CalCentral Customization to use the siteType in the bSpace/CLE json return in trimpath template
+                    // just add empty string for a site that is not a course or a project site to prevent trimpath blow-up
+                    if (finaljson.sites[s].siteType === undefined) {
+                        finaljson.sites[s].siteType = "";
+                    }
+                   // End CalCentral Customization
                 }
     
                 resultstotal = finaljson.sites.length;
@@ -192,7 +203,9 @@ require(["jquery", "sakai/sakai.api.core", "/dev/javascript/search_util.js"], fu
 
             $(searchConfig.results.container, rootel).html(sakai.api.Util.TemplateRenderer(searchConfig.results.template, finaljson));
             $(searchConfig.results.container, rootel).show();
-
+            // Begin CalCentral Customization
+            addNavigationHandler();
+            // End CalCentral Cusomization
 
             // Putting Pager Reset down here, otherwise I seem to be having
             // timing issues with different things (facet, pager, etc) getting
@@ -237,7 +250,15 @@ require(["jquery", "sakai/sakai.api.core", "/dev/javascript/search_util.js"], fu
                 "page": 0
             }, 0);
         });
-
+        
+        // Begin CalCentral Customization - event handlers for external navigation
+        var addNavigationHandler = function() {
+	        $('.go-sakai2').on('click',function(event){   
+	            event.preventDefault();
+	            window.open(this.href,'s2_window');
+	        });
+        }
+        // End CalCentral Customization
 
         /////////////////////////////
         // Initialization function //

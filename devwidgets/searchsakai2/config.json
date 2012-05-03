@@ -2,7 +2,7 @@
     "id":                 "searchsakai2",
     "type":               "core",
     "enabled":            false,
-    "hasSettings":        false,
+    "hasSettings":        true,
     "url":                "/devwidgets/searchsakai2/searchsakai2.html",
     "i18n": {
         "default": {
@@ -12,5 +12,11 @@
         }
     },
     "personalportal":     false,
-    "sakaidocs":          false
+    "sakaidocs":          true,
+    "showinsakaigoodies": false,
+    // Begin CalCentral Customization to allow external linking to bSpace/CLE sites
+    // and chose which icon image to use
+    "showInSakai2Window": true,
+    "iconPath":           "/dev/images/bspace_grp_icon.png"
+    // End CalCentral Customization
 }

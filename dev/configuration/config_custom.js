@@ -43,7 +43,6 @@ define(["config/config", "config/env"], function(config) {
         "name": "mylinks"
     });
     
-    
     // Show walktime dashboard widget by default for new users
     config.defaultprivstructure["${refid}0"]["${refid}5"].dashboard.columns.column1.push({
         "uid": "id46750934593210789",
@@ -724,43 +723,55 @@ define(["config/config", "config/env"], function(config) {
     
     // Hybrid
     
-    config.showSakai2=false;
-    config.useLiveSakai2Feeds=false;
-    
     // adds the Sakai 2 Sites item to the left hand nav
-    //config.defaultprivstructure["${refid}5"].dashboard.columns.column1.push({
-    //    "uid": "${refid}1234",
-    //    "visible": "block",
-    //    "name": "mysakai2"
-    //});
-    //
-    //config.defaultprivstructure.structure0["sakai2sites"] =  {
-    //    "_ref": "${refid}2345",
-    //    "_title": "My bSpace sites",
-    //    "_order": 2,
-    //    "_canEdit": true,
-    //    "_reorderOnly": true,
-    //    "_nonEditable": true,
-    //    "main": {
-    //        "_ref": "${refid}2345",
-    //        "_order": 0,
-    //        "_title": "My bSpace sites"
-    //    }
-    //};
-    //
-    //config.defaultprivstructure["${refid}2345"] = {
-    //    "page": "<div id='widget_searchsakai2_${refid}2346' class='widget_inline'></div>"
-    //};
-    //
-    //// adds the My Sakai 2 Sites menu item to the Me menu
-    //config.Navigation[0].subnav.splice(2,0, {
-    //    "url": "/me#l=sakai2sites",
-    //    "id": "subnavigation_sakai2_link",
-    //    "label": "MY_SAKAI2_SITES"
-    //});
+    config.defaultprivstructure['${refid}0']['${refid}5'].dashboard.columns.column1.push({
+        'uid': '${refid}1234',
+        'visible': 'block',
+        'name': 'mysakai2'
+    });
+    
+	config.defaultprivstructure.structure0['sakai2sites'] =  {
+	    '_ref': '${refid}2345',
+	    '_title': 'My bSpace sites',
+	    '_order': 2,
+	    '_canEdit': true,
+	    '_reorderOnly': true,
+	    '_nonEditable': true,
+	    'main': {
+	        '_ref': '${refid}2345',
+	        '_order': 0,
+	        '_title': 'My Sakai 2 sites'
+	    }
+	};
+	
+	config.defaultprivstructure['${refid}2345'] = {
+	    'rows': [
+	        {
+	            'id': 'id8965114',
+	            'columns': [
+	                {
+	                    'width': 1,
+	                    'elements': [
+	                        {
+	                            'id': '${refid}2346',
+	                            'type': 'searchsakai2'
+	                        }
+	                    ]
+	                }
+	            ]
+	        }
+	    ]
+	};
+    
+    // adds the My Sakai 2 Sites menu item to the Me menu
+	config.Navigation[0].subnav.splice(2,0, {
+        'url': '/me#l=sakai2sites',
+        'id': 'subnavigation_sakai2_link',
+        'label': 'MY_SAKAI2_SITES'
+    });
 
     // End CalCentral custom
-
+	
     /**
      * Kaltura Settings
      */

@@ -56,21 +56,37 @@
                     <div class="jq_pager"><!-- --></div>
                 </div>
                 <!-- TEMPLATE CONTAINING THE RESULTS -->
+                <!-- Begin CalCentral Customization - enable config for external linking to bSpace sites, aka Hybrid 0.5, 
+                     use shortDescription in results, interpolate siteType in title and make icon used configurable -->
                 <div id="searchsakai2_results_template"><!--
-                    {for i in sites}
-                    <div class="fl-container fl-fix searchsakai2_result {if i_index === "0"} searchsakai2_result_first {/if}">
-                        <a href="s2site?id=${i.url}">
-                            <img src="/dev/images/sakai2sites.png" alt="__MSG__SAKAI2_SEARCH_ICON_ALT__" />
+                  {var widgetConfig = sakai.widgets.searchsakai2}
+                  {for site in sites}
+                    <div class="fl-container fl-fix searchsakai2_result {if site.index === "0"} searchsakai2_result_first {/if}">
+                      {if widgetConfig.showInSakai2Window}
+                        <a href="${site.url}" class="go-sakai2">
+                            <img src="${widgetConfig.iconPath}" alt="__MSG__SAKAI2_SEARCH_ICON_ALT__" />
                         </a>
+                      {else}
+                        <a href="s2site?id=${site.url}">
+                            <img src="${widgetConfig.iconPath}" alt="__MSG__SAKAI2_SEARCH_ICON_ALT__" />
+                        </a>  
+                       {/if}
                         <div class="searchsakai2_result_right">
                             <div>
-                                <a class="s3d-bold s3d-regular-light-links" href="s2site?id=${i.url}" title="${i.title}">
-                                    ${i.title}                                
-                                </a>                          
-                                <span class="searchsakai2_result_mimetype">__MSG__SAKAI2_SITE__</span>
+                        {if widgetConfig.showInSakai2Window}
+                            <a class="s3d-bold s3d-regular-light-links go-sakai2" href="${site.url}" title="${site.title}">
+                                ${site.title}
+                            </a>
+                        {else}
+                            <a class="s3d-bold s3d-regular-light-links" href="s2site?id=${site.url}" title="${site.title}">
+                                ${site.title}
+                            </a>
+                         {/if}
+                                <span class="searchsakai2_result_mimetype">__MSG__SAKAI2__ ${site.siteType} __MSG__SITE__</span>
                             </div>
-                            {if i.description}<div class="searchsakai2_itemby">${i.description}</div>
-                            {/if}
+                         {if site.shortDescription}
+                            <div class="searchsakai2_itemby">${site.shortDescription}</div>
+                         {/if}
                         </div>
                     </div>
                     {forelse}
@@ -87,6 +103,7 @@
                         </div>
                     {/for}                                
                     -->
+                    <!-- End CalCentral Customization -->
                 </div>
             </div>
         </div>
